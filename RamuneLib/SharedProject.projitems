@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>14a018c6-b7f3-46c7-8dfd-8f57b82724b2</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>SharedProject</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\Colors.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\Checks.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Main\Sprite.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\Log.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\Sort.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\Sprite.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Utils\Texture.cs" />
+  </ItemGroup>
+</Project>

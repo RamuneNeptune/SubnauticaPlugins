@@ -23,7 +23,6 @@ namespace Ramune.EdibleLeviathans
             Pickupable pickupable = __instance.gameObject.GetComponentInChildren<Pickupable>();
 
             if (pickupable != null) { /* ErrorMessage.AddError("<color=#ff2202>Pickupable WAS found.</color>"); */ return; }
-
             if(__instance.gameObject.name == "GhostLeviathan(Clone)" || __instance.gameObject.name == "ReaperLeviathan(Clone)" || __instance.gameObject.name == "SeaTreader(Clone)")
             {
                 //ErrorMessage.AddError("<color=#1bc95a>Match found!</color>");

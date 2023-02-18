@@ -75,39 +75,4 @@ namespace Ramune.DiscoGravTrap
             Log.Colored(Colors.Blue, $"Returning <b>'result'</b>");
         }
     }
-
-
-    public class Tracker : MonoBehaviour
-    {
-        private PingInstance ping;
-        public void Start()
-        {
-            gameObject.EnsureComponent<PingInstance>();
-            ping = gameObject.GetComponent<PingInstance>();
-
-            ping.SetLabel("Reaper Leviathan");
-            ping.pingType = PingType.Signal;
-            ping.origin = gameObject.transform;
-        }
-
-        public void Update()
-        {
-            //Log.Colored(Colors.Orange, "<b>Update()</b
-            ping.SetLabel("Reaper Leviathan");
-        }
-    }
-
-
-    [HarmonyPatch(typeof(Creature), nameof(Creature.Start))]
-    public static class CreaturePatch
-    {
-        public static void Postfix(Creature __instance)
-        {
-            //if(!(__instance is ReaperLeviathan)) { Log.Colored(Colors.Red, "Nothing here Sir."); return; }
-
-            //Log.Colored(Colors.Green, "Affirmate. Target spotted Sir.");
-
-            //__instance.gameObject.EnsureComponent<Tracker>();
-        }
-    }
 }

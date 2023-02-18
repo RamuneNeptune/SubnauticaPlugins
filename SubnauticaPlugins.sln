@@ -61,6 +61,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OxygenCanisters", "OyxgenCa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BZ Enameled Glass", "BZ Enameled Glass\BZ Enameled Glass.csproj", "{823762AC-2BC9-4531-96F7-3FB51625822E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Seamoth", "Seamoth", "{A0AA4D30-D7BC-449F-BC74-36172EFC4E56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeamothTurboModule", "SeamothTurboModule\SeamothTurboModule.csproj", "{1583E1A3-573A-416B-A858-2CFE172CDFCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeamothReinforcements", "SeamothReinforcements\SeamothReinforcements.csproj", "{6E3E8FF1-FF5A-4EAA-A346-E8FD7ED8B6A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeamothRadarModule", "SeamothRadarModule\SeamothRadarModule.csproj", "{A19B61D0-4410-43D6-B449-9B755C4E0359}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -163,6 +171,18 @@ Global
 		{823762AC-2BC9-4531-96F7-3FB51625822E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{823762AC-2BC9-4531-96F7-3FB51625822E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{823762AC-2BC9-4531-96F7-3FB51625822E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1583E1A3-573A-416B-A858-2CFE172CDFCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1583E1A3-573A-416B-A858-2CFE172CDFCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1583E1A3-573A-416B-A858-2CFE172CDFCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1583E1A3-573A-416B-A858-2CFE172CDFCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E3E8FF1-FF5A-4EAA-A346-E8FD7ED8B6A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E3E8FF1-FF5A-4EAA-A346-E8FD7ED8B6A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E3E8FF1-FF5A-4EAA-A346-E8FD7ED8B6A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E3E8FF1-FF5A-4EAA-A346-E8FD7ED8B6A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A19B61D0-4410-43D6-B449-9B755C4E0359}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A19B61D0-4410-43D6-B449-9B755C4E0359}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A19B61D0-4410-43D6-B449-9B755C4E0359}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A19B61D0-4410-43D6-B449-9B755C4E0359}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -196,6 +216,10 @@ Global
 		{5A2FD591-BC25-4CA4-A045-780E5488FACA} = {1F7872AA-2F70-42C2-A225-CA28195D8FCC}
 		{377E5144-D60D-432C-9F22-EC61DFEFA10A} = {ACA22A09-3127-4C40-9C0E-D500F026F230}
 		{823762AC-2BC9-4531-96F7-3FB51625822E} = {1F7872AA-2F70-42C2-A225-CA28195D8FCC}
+		{A0AA4D30-D7BC-449F-BC74-36172EFC4E56} = {728D537A-DAAF-479E-B995-998926969C7E}
+		{1583E1A3-573A-416B-A858-2CFE172CDFCB} = {A0AA4D30-D7BC-449F-BC74-36172EFC4E56}
+		{6E3E8FF1-FF5A-4EAA-A346-E8FD7ED8B6A5} = {A0AA4D30-D7BC-449F-BC74-36172EFC4E56}
+		{A19B61D0-4410-43D6-B449-9B755C4E0359} = {A0AA4D30-D7BC-449F-BC74-36172EFC4E56}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {2CF71EBE-5E2A-4BDB-A38B-9C2C7821AFB4}
@@ -204,6 +228,7 @@ Global
 		RamuneLib\SharedProject.projitems*{0958a95c-a324-4abd-ab96-fa1a5c722908}*SharedItemsImports = 4
 		RamuneLib\SharedProject.projitems*{0c85fe2d-be7d-4dda-bedc-eff746421e42}*SharedItemsImports = 4
 		RamuneLib\SharedProject.projitems*{14a018c6-b7f3-46c7-8dfd-8f57b82724b2}*SharedItemsImports = 13
+		RamuneLib\SharedProject.projitems*{1583e1a3-573a-416b-a858-2cfe172cdfcb}*SharedItemsImports = 4
 		RamuneLib\SharedProject.projitems*{281a3974-6d05-42af-9d93-f6c4d8d35c19}*SharedItemsImports = 4
 		RamuneLib\SharedProject.projitems*{324475cb-8708-4d3d-8f6b-4abee49b784c}*SharedItemsImports = 4
 		RamuneLib\SharedProject.projitems*{377e5144-d60d-432c-9f22-ec61dfefa10a}*SharedItemsImports = 4
@@ -214,10 +239,12 @@ Global
 		RamuneLib\SharedProject.projitems*{5a2fd591-bc25-4ca4-a045-780e5488faca}*SharedItemsImports = 4
 		RamuneLib\SharedProject.projitems*{67339cf9-50d5-488b-a918-da15e04da79f}*SharedItemsImports = 4
 		RamuneLib\SharedProject.projitems*{6d49e246-0798-4bfe-b559-163efba90e72}*SharedItemsImports = 4
+		RamuneLib\SharedProject.projitems*{6e3e8ff1-ff5a-4eaa-a346-e8fd7ed8b6a5}*SharedItemsImports = 4
 		RamuneLib\SharedProject.projitems*{72c41b82-a627-49f0-8cde-53a8a54dc54d}*SharedItemsImports = 4
 		RamuneLib\SharedProject.projitems*{823762ac-2bc9-4531-96f7-3fb51625822e}*SharedItemsImports = 4
 		RamuneLib\SharedProject.projitems*{85335dfc-5fbf-47c6-9478-ab294e18e9f9}*SharedItemsImports = 4
 		RamuneLib\SharedProject.projitems*{97d646e3-6453-4ac8-9fad-649d67b7c27c}*SharedItemsImports = 4
+		RamuneLib\SharedProject.projitems*{a19b61d0-4410-43d6-b449-9b755c4e0359}*SharedItemsImports = 4
 		RamuneLib\SharedProject.projitems*{a564f82c-17c4-482b-bfdd-9aaceffb4aa3}*SharedItemsImports = 4
 		RamuneLib\SharedProject.projitems*{a5a7fe45-974b-4ab1-9ce7-6edb412d5d20}*SharedItemsImports = 4
 		RamuneLib\SharedProject.projitems*{aaadc6c2-c454-4983-ad00-89695420b651}*SharedItemsImports = 4

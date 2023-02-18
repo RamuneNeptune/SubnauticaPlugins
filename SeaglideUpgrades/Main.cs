@@ -20,7 +20,7 @@ namespace Ramune.SeaglideUpgrades
     public class SeaglideUpgrades : BaseUnityPlugin
     {
         internal static Config config { get; } = OptionsPanelHandler.RegisterModOptions<Config>();
-
+        
         private const string myGUID = "com.ramune.SeaglideUpgrades";
         private const string pluginName = "Seaglide Upgrades";
         private const string versionString = "1.0.1";

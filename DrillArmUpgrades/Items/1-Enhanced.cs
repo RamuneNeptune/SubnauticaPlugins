@@ -27,9 +27,9 @@ namespace Ramune.DrillArmUpgrades.Items
         protected override Atlas.Sprite GetItemSprite() => Sprite.Get("EnhancedDrillArm");
 
         // Name, description, etc.
-        public EnhancedDrillArm() : base("EnhancedDrillArm", "Enhanced Drill Arm", "DAMAGE: +7%\nRANGE: +3%")
+        public EnhancedDrillArm() : base("EnhancedDrillArm", "Enhanced Drill Arm", "DAMAGE: +7%\nRANGE: +3%") 
         {
-            OnFinishedPatching += () => thisTechType = TechType;
+            OnFinishedPatching += () => thisTechType = TechType; 
         }
     }
 }

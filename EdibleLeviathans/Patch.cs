@@ -23,30 +23,30 @@ namespace Ramune.EdibleLeviathans
             Pickupable pickupable = __instance.gameObject.GetComponentInChildren<Pickupable>();
 
             if (pickupable != null) { /* ErrorMessage.AddError("<color=#ff2202>Pickupable WAS found.</color>"); */ return; }
-            if(__instance.gameObject.name == "GhostLeviathan(Clone)" || __instance.gameObject.name == "ReaperLeviathan(Clone)" || __instance.gameObject.name == "SeaTreader(Clone)")
+            if (__instance.gameObject.name == "GhostLeviathan(Clone)" || __instance.gameObject.name == "ReaperLeviathan(Clone)" || __instance.gameObject.name == "SeaTreader(Clone)" || __instance.gameObject.name == "GhostLeviathanJuvenile(Clone)" || __instance.gameObject.name == "SeaDragonLeviathan(Clone)")
             {
-                //ErrorMessage.AddError("<color=#1bc95a>Match found!</color>");
+                ErrorMessage.AddError("<color=#1bc95a>Match found!</color>");
                 __instance.gameObject.EnsureComponent<Pickupable>();
                 //ErrorMessage.AddError($"<color=#1bc95a>Ensured component on:</color> <color=#afafaf>'{__instance.gameObject.name}'</color>");
             }
             else
             {
-                //ErrorMessage.AddError("<color=#1bc95a>NO Matches!</color>");
+                ErrorMessage.AddError($"<color=#1bc95a>NO Matches!</color>, name is {__instance.gameObject.name}");
             }
         }
     }
 
-    //[HarmonyPatch(typeof(PlayerTool), nameof(PlayerTool.OnDraw))]
-    //public static class PlayerToolPatch
-    //{
-    //    public static void Postfix(PlayerTool __instance)
-    //    {
-    //        if (__instance.GetType() == typeof(Knife))
-    //        {
-    //            Knife knife = __instance as Knife;
-    //            knife.damage = 10000f;
-    //            knife.attackDist = 400f;
-    //        }
-    //    }
-    //}
+    [HarmonyPatch(typeof(PlayerTool), nameof(PlayerTool.OnDraw))]
+    public static class PlayerToolPatch
+    {
+        public static void Postfix(PlayerTool __instance)
+        {
+            if (__instance.GetType() == typeof(Knife))
+            {
+                Knife knife = __instance as Knife;
+                knife.damage = 10000f;
+                knife.attackDist = 400f;
+            }
+        }
+    }
 }

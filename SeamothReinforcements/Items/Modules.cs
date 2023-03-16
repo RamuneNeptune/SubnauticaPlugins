@@ -4,9 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ramune.CuddlefishClones
+namespace Ramune.SeamothReinforcements.Items
 {
-    internal class Item
-    {
-    }
+
 }

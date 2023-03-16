@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ramune.CraftableCuddlefishEgg
+namespace Ramune.SeamothRadarModule.Items
 {
-    public class Main
+    internal class SeamothRadarModule
     {
     }
 }

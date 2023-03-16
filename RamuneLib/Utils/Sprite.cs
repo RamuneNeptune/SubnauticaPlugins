@@ -3,7 +3,6 @@ using SMLHelper.V2.Utility;
 using System.Reflection;
 using System.IO;
 
-
 namespace RamuneLib.Utils
 {
     public static class Sprite

@@ -12,7 +12,7 @@ namespace Ramune.DeveloperMode
     {
         private const string myGUID = "com.ramune.DeveloperMode";
         private const string pluginName = "Developer Mode";
-        private const string versionString = "1.0.0";
+        private const string versionString = "1.0.1";
 
         private static readonly Harmony harmony = new Harmony(myGUID);
         public static ManualLogSource logger;

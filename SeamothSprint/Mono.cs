@@ -39,6 +39,8 @@ namespace Ramune.SeamothSprint
             if(!seamoth.playerFullyEntered) return;
             if(Main.config.EnergyMultiplier == 1) { /* Log.Colored(Colors.Red, "Config: 1"); */ energy = 0.066667f; }
 
+            HandReticle.main.SetText(HandReticle.TextType.Hand, "Boost", false, );
+
             if(GameInput.GetKey(Main.config.Boost))
             {
                 engine.engineRpmSFX.GetEventInstance().setPitch(1.15f);                  

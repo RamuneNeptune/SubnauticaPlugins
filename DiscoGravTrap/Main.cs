@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
 using SMLHelper.V2.Handlers;
+using SMLHelper.V2.Json;
+using SMLHelper.V2.Options.Attributes;
 
 namespace Ramune.DiscoGravTrap
 {
@@ -14,6 +12,8 @@ namespace Ramune.DiscoGravTrap
     [BepInProcess("Subnautica.exe")]
     public class DiscoGravTrap : BaseUnityPlugin
     {
+        internal static Config config { get; } = OptionsPanelHandler.RegisterModOptions<Config>();
+
         private const string myGUID = "com.ramune.DiscoGravTrap";
         private const string pluginName = "Disco Grav Trap";
         private const string versionString = "1.0.0";
@@ -29,5 +29,11 @@ namespace Ramune.DiscoGravTrap
 
             StartCoroutine(RamuneLib.Main.Sprite.GetSubmodicaSprites());
         }
+    }
+    [Menu("Customizable Lights")]
+    public class Config : ConfigFile
+    {
+        [Slider("Time between color changes", Format = "{0:F1}", DefaultValue = 1f, Min = 0.1f, Max = 5f, Step = 0.1f, Order = 0)]
+        public float delay = 1f;
     }
 }

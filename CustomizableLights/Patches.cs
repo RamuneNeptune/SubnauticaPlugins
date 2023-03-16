@@ -1,10 +1,10 @@
-﻿using Log = RamuneLib.Utils.Log;
+﻿
 using Ramune.CustomizableLights.Monos;
-using RamuneLib.Utils;
 using HarmonyLib;
+using UnityEngine;
+using TMPro;
 
-
-namespace Ramune.CustomizableLights.Patches
+namespace Ramune.CustomizableLights
 {
     // ----------------------------------------------------------------------------------------- //
 
@@ -60,7 +60,7 @@ namespace Ramune.CustomizableLights.Patches
 
     // ----------------------------------------------------------------------------------------- //
 
-    [HarmonyPatch(typeof(MapRoomCamera), nameof(MapRoomCamera.Start))]
+    /*[HarmonyPatch(typeof(MapRoomCamera), nameof(MapRoomCamera.Start))]
     public static class MapRoomCameraPatch
     {
         public static void Postfix(MapRoomCamera __instance)
@@ -68,6 +68,20 @@ namespace Ramune.CustomizableLights.Patches
             //Log.Colored(Colors.Yellow, "Adding component to <b>DRONE</b>");
             __instance.gameObject.EnsureComponent<DroneCL>();
             //Log.Colored(Colors.Green, "Added component to <b>DRONE</b>");
+        }
+    }*/
+
+    // ----------------------------------------------------------------------------------------- //
+
+    [HarmonyPatch(typeof(SubRoot), nameof(SubRoot.Start))]
+    public static class SubRootPatch
+    {
+        public static void Postfix(SubRoot __instance)
+        {
+            //Log.Colored(Colors.Yellow, "Adding component to <b>CYCLOPS</b>");
+            if (!__instance.isCyclops) return;
+            __instance.gameObject.EnsureComponent<CyclopsCL>();
+            //Log.Colored(Colors.Green, "Added component to <b>CYCLOPS</b>");
         }
     }
 

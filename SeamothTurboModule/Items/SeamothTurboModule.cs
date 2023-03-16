@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ramune.VehicleSkins.Vehicles
+namespace Ramune.SeamothTurboModule.Items
 {
-    internal class Seaglide
+    internal class SeamothTurboModule
     {
     }
 }

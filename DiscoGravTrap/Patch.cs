@@ -34,7 +34,7 @@ namespace Ramune.DiscoGravTrap
 
             light.enabled = true;
 
-            InvokeRepeating("Rainbow", 0.5f, 0.5f);
+            InvokeRepeating("Rainbow", DiscoGravTrap.config.delay, DiscoGravTrap.config.delay);
         }
 
         public void Update()
@@ -72,7 +72,7 @@ namespace Ramune.DiscoGravTrap
 
             light.color = colors[i];
 
-            Log.Colored(Colors.Blue, $"Returning <b>'result'</b>");
+            //Log.Colored(Colors.Blue, $"Returning <b>'result'</b>");
         }
     }
 }

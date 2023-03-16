@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ramune.VehicleSkins.Vehicles
+namespace Ramune.DrillArmUpgrades.Items
 {
-    internal class Cyclops
+    internal class Diamond
     {
     }
 }

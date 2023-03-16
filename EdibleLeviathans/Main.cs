@@ -33,12 +33,12 @@ namespace Ramune.EdibleLeviathans
             Sprite reaper = ImageUtils.LoadSpriteFromFile(Path.Combine(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Assets"), "Reaper.png"));
             Sprite ghost = ImageUtils.LoadSpriteFromFile(Path.Combine(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Assets"), "Ghost.png"));
             Sprite seaTreader = ImageUtils.LoadSpriteFromFile(Path.Combine(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Assets"), "SeaTreader.png"));
+            Sprite seaDragon = ImageUtils.LoadSpriteFromFile(Path.Combine(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Assets"), "SeaDragon.png"));
 
             Sprite backgroundSprite = ImageUtils.LoadSpriteFromFile(Path.Combine(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Assets"), "Background.png"));
             CraftData.BackgroundType backgroundType = BackgroundTypeHandler.AddBackgroundType("DeadLeviathan", backgroundSprite);
 
-            logger.LogInfo("Sprites loaded");
-
+            logger.LogInfo("1/3: Sprites loaded");
 
             // Reaper leviathan ------------------------------------------------------------------------------
             CraftDataHandler.SetItemSize(TechType.ReaperLeviathan, new Vector2int(3, 3));
@@ -48,12 +48,20 @@ namespace Ramune.EdibleLeviathans
             LanguageHandler.Main.SetTechTypeTooltip(TechType.ReaperLeviathan, $"Can be processed for meat.");
             //------------------------------------------------------------------------------------------------
 
-            // Ghost leviathan -------------------------------------------------------------------------------
+            // Adult Ghost leviathan -------------------------------------------------------------------------
             CraftDataHandler.SetItemSize(TechType.GhostLeviathan, new Vector2int(3, 3));
             SpriteHandler.RegisterSprite(TechType.GhostLeviathan, ghost);
             CraftDataHandler.SetBackgroundType(TechType.GhostLeviathan, backgroundType);
             LanguageHandler.Main.SetTechTypeName(TechType.GhostLeviathan, $"Ghost Leviathan");
             LanguageHandler.Main.SetTechTypeTooltip(TechType.GhostLeviathan, $"Can be processed for meat.");
+            //------------------------------------------------------------------------------------------------
+
+            // Juvenile Ghost leviathan ----------------------------------------------------------------------
+            CraftDataHandler.SetItemSize(TechType.GhostLeviathanJuvenile, new Vector2int(3, 3));
+            SpriteHandler.RegisterSprite(TechType.GhostLeviathanJuvenile, ghost);
+            CraftDataHandler.SetBackgroundType(TechType.GhostLeviathanJuvenile, backgroundType);
+            LanguageHandler.Main.SetTechTypeName(TechType.GhostLeviathanJuvenile, $"Ghost Leviathan Juvenile");
+            LanguageHandler.Main.SetTechTypeTooltip(TechType.GhostLeviathanJuvenile, $"Can be processed for meat.");
             //------------------------------------------------------------------------------------------------
 
             // Sea treader -----------------------------------------------------------------------------------
@@ -64,16 +72,23 @@ namespace Ramune.EdibleLeviathans
             LanguageHandler.Main.SetTechTypeTooltip(TechType.SeaTreader, $"Can be processed for meat.");
             //------------------------------------------------------------------------------------------------
 
-            logger.LogInfo("Item sizes, tooltips, and such, done");
+            // Sea dragon ------------------------------------------------------------------------------------
+            CraftDataHandler.SetItemSize(TechType.SeaDragon, new Vector2int(3, 3));
+            SpriteHandler.RegisterSprite(TechType.SeaDragon, seaDragon);
+            CraftDataHandler.SetBackgroundType(TechType.SeaDragon, backgroundType);
+            LanguageHandler.Main.SetTechTypeName(TechType.SeaDragon, $"Sea Dragon");
+            LanguageHandler.Main.SetTechTypeTooltip(TechType.SeaDragon, $"Can be processed for meat.");
+            //------------------------------------------------------------------------------------------------
 
+            logger.LogInfo("2/3: Item sizes, tooltips, and such, done");
 
             new Items.Meat.CookedGhost().Patch();
             new Items.Meat.CookedReaper().Patch();
             new Items.Meat.CookedTreader().Patch();
             new Items.Meat.CookedGhostAlt().Patch();
+            new Items.Meat.CookedDragon().Patch();
 
-
-            logger.LogInfo("Meats patched");
+            logger.LogInfo("3/3: Meats patched");
         }
     }
 }

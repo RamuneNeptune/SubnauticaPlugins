@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CuddlefishClones")]
+[assembly: AssemblyTitle("DrilArmUpgrades")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CuddlefishClones")]
+[assembly: AssemblyProduct("DrilArmUpgrades")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("0d5bbbe2-ce40-4962-b091-247dfff4a38f")]
+[assembly: Guid("39aade68-dd85-4337-8fd9-727236fea442")]
 
 // Version information for an assembly consists of the following four values:
 //

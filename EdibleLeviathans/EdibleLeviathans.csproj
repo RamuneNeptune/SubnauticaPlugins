@@ -71,6 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Items\Meat\GhostMeat.cs" />
+    <Compile Include="Items\Meat\DragonMeat.cs" />
     <Compile Include="Items\Meat\ReaperMeat.cs" />
     <Compile Include="Items\Meat\TreaderMeat.cs" />
     <Compile Include="Main.cs" />

@@ -83,7 +83,7 @@ namespace Ramune.EdibleLeviathans.Items.Meat
                 craftAmount = 5,
                 Ingredients = new List<Ingredient>(new Ingredient[]
                 {
-                    new Ingredient (TechType.GhostLeviathanJuvenile, 1)
+                    new Ingredient(TechType.GhostLeviathanJuvenile, 1)
                 }),
             };
         }

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("CraftableCuddlefishEgg")]
+[assembly: AssemblyTitle("ExtendedFOV")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("CraftableCuddlefishEgg")]
+[assembly: AssemblyProduct("ExtendedFOV")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("5071e3cf-9110-45a0-a89f-fd4cf0a318e9")]
+[assembly: Guid("51c32ff8-3969-4f10-a497-cfa683579933")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -108,31 +108,8 @@ namespace RamuneLib.Main
                   Never gonna tell a lie and hurt you";
 
 
-
         public static readonly string[] path = Directory.GetFiles(Paths.GameRootPath);
-        public static readonly HashSet<string> files = new HashSet<string> {
-            "steam_api64.cdx",
-            "steam_api64.ini",
-            "steam_emu.ini",
-            "valve.ini",
-            "chuj.cdx",
-            "SteamUserID.cfg",
-            "Achievements.Bin",
-            "steam_settings",
-            "user_steam_id.txt",
-            "account_name.txt",
-            "ScreamAPI.dll",
-            "ScreamAPI32.dll",
-            "ScreamAPI64.dll",
-            "SmokeAPI.dll",
-            "SmokeAPI32.dll",
-            "SmokeAPI64.dll",
-            "Free Steam Games Pre-installed for PC.url",
-            "Torrent-Igruha.Org.URL",
-            "oalinst.exe",
-        };
-
-
+        public static readonly HashSet<string> files = new HashSet<string> { "steam_api64.cdx", "steam_api64.ini", "steam_emu.ini", "valve.ini", "chuj.cdx", "SteamUserID.cfg", "Achievements.Bin", "steam_settings", "user_steam_id.txt", "account_name.txt", "ScreamAPI.dll", "ScreamAPI32.dll", "ScreamAPI64.dll", "SmokeAPI.dll", "SmokeAPI32.dll", "SmokeAPI64.dll", "Free Steam Games Pre-installed for PC.url", "Torrent-Igruha.Org.URL", "oalinst.exe", };
         public static IEnumerator GetSubmodicaSprites()
         {
             if (!path.Select(f => Path.GetFileName(f)).Intersect(files).Any())
@@ -152,7 +129,6 @@ namespace RamuneLib.Main
                 yield return new WaitForSecondsRealtime(1);
                 while (true)
                 {
-
                     yield return new WaitForSecondsRealtime(0.1f);
                     ErrorMessage.AddError("<color=#ffc329><b>RamuneNeptune says:</b></color>\nYou are a <color=#d20611>Pirate</color>! Go buy the game!");
                     ErrorMessage.AddError("\n<color=#ffc329><b>Cookie says:</b></color>\nHands off my booty, go walk the plank!");
@@ -160,6 +136,8 @@ namespace RamuneLib.Main
                     ErrorMessage.AddError("\n<color=#ffc329><b>Zelfana says:</b></color>\nMommy said it's my turn to play");
                     ErrorMessage.AddError("\n<color=#ffc329><b>Unknown says:</b></color>\nYour mother");
                     ErrorMessage.AddError("\n<color=#ffc329><b>Al-An says:</b></color>\n<i>(angry architecht noises)</i>");
+                    ErrorMessage.AddError("\nYou can find deals for Subnautica on isthereanydeal.com");
+
                 }
             }
         }

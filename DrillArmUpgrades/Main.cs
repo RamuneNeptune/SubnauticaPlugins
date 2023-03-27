@@ -31,6 +31,7 @@ namespace Ramune.DrillArmUpgrades
             StartCoroutine(RamuneLib.Main.Sprite.GetSubmodicaSprites());
 
             new Items.EnhancedDrillArm().Patch(); Logger.LogInfo("1/6 Enhanced Drill Arm: patched");
+            CraftTreeHandler.AddTabNode(CraftTree.Type.Workbench, "DrillArms", "Drill Arms", SpriteManager.Get(TechType.ExosuitDrillArmModule));
         }
     }
 }

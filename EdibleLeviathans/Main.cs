@@ -88,7 +88,7 @@ namespace Ramune.EdibleLeviathans
             new Items.Meat.CookedGhostAlt().Patch();
             new Items.Meat.CookedDragon().Patch();
 
-            logger.LogInfo("3/3: Meats patched");
+            logger.LogInfo("3/3: Leviathan meats patched");
         }
     }
 }

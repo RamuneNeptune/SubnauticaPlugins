@@ -15,10 +15,5 @@ using TechData = SMLHelper.V2.Crafting.TechData;
 
 namespace Ramune.DrillArmUpgrades.Items
 {
-    /*
-    internal class DrillArm : Equipable
-    {
 
-    }
-    */
 }

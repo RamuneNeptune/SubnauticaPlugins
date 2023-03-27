@@ -1,7 +1,9 @@
 ﻿using BepInEx.Logging;
 using HarmonyLib;
 using BepInEx;
-
+using SMLHelper.V2.Handlers;
+using SMLHelper.V2.Options.Attributes;
+using SMLHelper.V2.Json;
 
 namespace Ramune.EnableAchievements
 {
@@ -9,9 +11,11 @@ namespace Ramune.EnableAchievements
     [BepInProcess("Subnautica.exe")]
     public class EnableAchievements : BaseUnityPlugin
     {
+        internal static Config config { get; } = OptionsPanelHandler.RegisterModOptions<Config>();
+
         private const string myGUID = "com.ramune.EnableAchievements";
         private const string pluginName = "Enable Achievements";
-        private const string versionString = "1.0.0";
+        private const string versionString = "1.0.1";
 
         private static readonly Harmony harmony = new Harmony(myGUID);
         public static ManualLogSource logger;
@@ -24,5 +28,11 @@ namespace Ramune.EnableAchievements
 
             StartCoroutine(RamuneLib.Main.Sprite.GetSubmodicaSprites());
         }
+    }
+    [Menu("Enable Achievements")]
+    public class Config : ConfigFile
+    {
+        [Toggle("Enable debug logging")]
+        public bool debug = false;
     }
 }

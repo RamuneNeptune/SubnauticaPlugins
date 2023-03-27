@@ -1,10 +1,12 @@
 ﻿
+using System.ComponentModel;
 using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
 using SMLHelper.V2.Handlers;
 using SMLHelper.V2.Json;
 using SMLHelper.V2.Options.Attributes;
+using UnityEngine.Internal;
 
 namespace Ramune.DiscoGravTrap
 {
@@ -30,10 +32,18 @@ namespace Ramune.DiscoGravTrap
             StartCoroutine(RamuneLib.Main.Sprite.GetSubmodicaSprites());
         }
     }
-    [Menu("Customizable Lights")]
+    [Menu("Disco Grav Trap")]
     public class Config : ConfigFile
     {
-        [Slider("Time between color changes", Format = "{0:F1}", DefaultValue = 1f, Min = 0.1f, Max = 5f, Step = 0.1f, Order = 0)]
+        [Slider("Time between color changes (seconds)", Format = "{0:0.0}s", DefaultValue = 1f, Min = 0.1f, Max = 5f, Step = 0.1f, Order = 0), OnChange(nameof(UpdateConfig))]
         public float delay = 1f;
+
+        [Toggle("Loop colors randomly")]
+        public bool random = false;
+
+        public void UpdateConfig()
+        {
+            DiscoLight.updatedConfig = true;
+        }
     }
 }

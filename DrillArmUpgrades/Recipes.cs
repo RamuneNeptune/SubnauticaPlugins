@@ -1,25 +1,30 @@
 ﻿
 using System.Collections.Generic;
 using SMLHelper.V2.Crafting;
-
+using static CraftData;
+using TechData = SMLHelper.V2.Crafting.TechData;
+using Ingredient = SMLHelper.V2.Crafting.Ingredient;
 
 namespace Ramune.DrillArmUpgrades
 {
     internal class Recipes
     {
-        public static TechData GetTechData(TechType tech1, int amount1, TechType tech2, int amount2, TechType tech3, int amount3, TechType tech4, int amount4, TechType tech5, int amount5)
+        public static TechData GetTechData(params (TechType item, int amount)[] items)
         {
+            List<Ingredient> ingredients = new List<Ingredient>();
+
+            foreach (var item in items)
+            {
+                TechType techType = item.item;
+                int techAmount = item.amount;
+
+                ingredients.Add(new Ingredient(techType, techAmount));
+            }
+
             return new TechData()
             {
                 craftAmount = 1,
-                Ingredients = new List<Ingredient>()
-            {
-                new Ingredient(tech1, amount1),
-                new Ingredient(tech2, amount2),
-                new Ingredient(tech3, amount3),
-                new Ingredient(tech4, amount4),
-                new Ingredient(tech5, amount5),
-            }
+                Ingredients = ingredients
             };
         }
     }

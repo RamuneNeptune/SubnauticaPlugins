@@ -3,6 +3,7 @@ using Ramune.CustomizableLights.Monos;
 using HarmonyLib;
 using UnityEngine;
 using TMPro;
+using RamuneLib.Utils;
 
 namespace Ramune.CustomizableLights
 {
@@ -60,7 +61,7 @@ namespace Ramune.CustomizableLights
 
     // ----------------------------------------------------------------------------------------- //
 
-    /*[HarmonyPatch(typeof(MapRoomCamera), nameof(MapRoomCamera.Start))]
+    [HarmonyPatch(typeof(MapRoomCamera), nameof(MapRoomCamera.Start))]
     public static class MapRoomCameraPatch
     {
         public static void Postfix(MapRoomCamera __instance)
@@ -69,7 +70,7 @@ namespace Ramune.CustomizableLights
             __instance.gameObject.EnsureComponent<DroneCL>();
             //Log.Colored(Colors.Green, "Added component to <b>DRONE</b>");
         }
-    }*/
+    }
 
     // ----------------------------------------------------------------------------------------- //
 

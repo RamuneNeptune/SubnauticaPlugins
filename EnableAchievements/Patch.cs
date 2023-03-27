@@ -1,4 +1,5 @@
 ﻿
+using BepInEx.Logging;
 using HarmonyLib;
 
 namespace Ramune.EnableAchievements
@@ -9,7 +10,22 @@ namespace Ramune.EnableAchievements
         [HarmonyPrefix]
         public static bool Prefix()
         {
-            return false;
+            if(EnableAchievements.config.debug)
+            {
+                ErrorMessage.AddError("Achievement trying to unlock");
+                EnableAchievements.logger.LogInfo("An achievement is attempting to unlock..");
+            }
+            return true;
+        }
+        [HarmonyPostfix]
+        public static bool Postfix()
+        {
+            if (EnableAchievements.config.debug)
+            {
+                ErrorMessage.AddError("Achievement trying to unlock");
+                EnableAchievements.logger.LogInfo("An achievement is attempting to unlock..");
+            }
+            return true;
         }
     }
 }

@@ -62,19 +62,19 @@ namespace Ramune.CustomizableLights
         [Toggle("<color=#166aab>------------------------------------------------------------------------------------------------</color>", Order = 10)]
         public bool a = false;
 
-        [Toggle("Enable <color=#0db6ff>Seaglide</color> light settings", Order = 11)]
+        [Toggle("Enable <color=#0095FF>Seaglide</color> light settings", Order = 11)]
         public bool Seaglide_Bool = false;
-        [Slider("<color=#0db6ff>Seaglide</color> Light Red (R)", Format = "{0:F1}", DefaultValue = 0.5f, Min = 0f, Max = 1f, Step = 0.1f, Order = 12), OnChange(nameof(SeaglideUpdated))]
+        [Slider("<color=#0095FF>Seaglide</color> Light Red (R)", Format = "{0:F1}", DefaultValue = 0.5f, Min = 0f, Max = 1f, Step = 0.1f, Order = 12), OnChange(nameof(SeaglideUpdated))]
         public float Seaglide_Red = 1f;
-        [Slider("<color=#0db6ff>Seaglide</color> Light Green (G)", Format = "{0:F1}", DefaultValue = 1f, Min = 0f, Max = 1f, Step = 0.1f, Order = 13), OnChange(nameof(SeaglideUpdated))]
+        [Slider("<color=#0095FF>Seaglide</color> Light Green (G)", Format = "{0:F1}", DefaultValue = 1f, Min = 0f, Max = 1f, Step = 0.1f, Order = 13), OnChange(nameof(SeaglideUpdated))]
         public float Seaglide_Green = 1f;
-        [Slider("<color=#0db6ff>Seaglide</color> Light Blue (B)", Format = "{0:F1}", DefaultValue = 1f, Min = 0f, Max = 1f, Step = 0.1f, Order = 14), OnChange(nameof(SeaglideUpdated))]
+        [Slider("<color=#0095FF>Seaglide</color> Light Blue (B)", Format = "{0:F1}", DefaultValue = 1f, Min = 0f, Max = 1f, Step = 0.1f, Order = 14), OnChange(nameof(SeaglideUpdated))]
         public float Seaglide_Blue = 1f;
-        [Slider("<color=#0db6ff>Seaglide</color> Light Range Multiplier (x)", Format = "{0:0.0}x", DefaultValue = 1f, Min = 0f, Max = 5f, Step = 0.1f, Order = 15), OnChange(nameof(SeaglideUpdated))]
+        [Slider("<color=#0095FF>Seaglide</color> Light Range Multiplier (x)", Format = "{0:0.0}x", DefaultValue = 1f, Min = 0f, Max = 5f, Step = 0.1f, Order = 15), OnChange(nameof(SeaglideUpdated))]
         public float Seaglide_Range = 1f;
-        [Slider("<color=#0db6ff>Seaglide</color> Light Intensity Multiplier (x)", Format = "{0:0.0}x", DefaultValue = 1f, Min = 0f, Max = 5f, Step = 0.1f, Order = 16), OnChange(nameof(SeaglideUpdated))]
+        [Slider("<color=#0095FF>Seaglide</color> Light Intensity Multiplier (x)", Format = "{0:0.0}x", DefaultValue = 1f, Min = 0f, Max = 5f, Step = 0.1f, Order = 16), OnChange(nameof(SeaglideUpdated))]
         public float Seaglide_Intensity = 1f;
-        [Slider("<color=#0db6ff>Seaglide</color> Light Cone Size Multipler (x)", Format = "{0:0.0}x", DefaultValue = 1f, Min = 0f, Max = 5f, Step = 0.1f, Order = 17), OnChange(nameof(SeaglideUpdated))]
+        [Slider("<color=#0095FF>Seaglide</color> Light Cone Size Multipler (x)", Format = "{0:0.0}x", DefaultValue = 1f, Min = 0f, Max = 5f, Step = 0.1f, Order = 17), OnChange(nameof(SeaglideUpdated))]
         public float Seaglide_Conesize = 1f;
         [Button("Display custom color on screen", Order = 18)]
         public void Seaglide()
@@ -163,22 +163,22 @@ namespace Ramune.CustomizableLights
         }
 
 
-        /*[Toggle("<color=#166aab>------------------------------------------------------------------------------------------------</color>", Order = 46)]
+        [Toggle("<color=#166aab>------------------------------------------------------------------------------------------------</color>", Order = 46)]
         public bool e = false;
 
         [Toggle("Enable custom <color=#81ffba>Drone</color> light settings", Order = 47)]
         public bool Drone_Bool = false;
-        [Slider("<color=#81ffba>Drone</color> Light Red (R)", Format = "{0:F1}", DefaultValue = 0.4f, Min = 0f, Max = 1f, Step = 0.1f, Tooltip = "Re-equip Drone to apply changes", Order = 48)]
+        [Slider("<color=#81ffba>Drone</color> Light Red (R)", Format = "{0:F1}", DefaultValue = 0.4f, Min = 0f, Max = 1f, Step = 0.1f, Tooltip = "Re-equip Drone to apply changes", Order = 48), OnChange(nameof(DroneUpdated))]
         public float Drone_Red = 1f;
-        [Slider("<color=#81ffba>Drone</color> Light Green (G)", Format = "{0:F1}", DefaultValue = 0.9f, Min = 0f, Max = 1f, Step = 0.1f, Tooltip = "Re-equip Drone to apply changes", Order = 49)]
+        [Slider("<color=#81ffba>Drone</color> Light Green (G)", Format = "{0:F1}", DefaultValue = 0.9f, Min = 0f, Max = 1f, Step = 0.1f, Tooltip = "Re-equip Drone to apply changes", Order = 49), OnChange(nameof(DroneUpdated))]
         public float Drone_Green = 1f;
-        [Slider("<color=#81ffba>Drone</color> Light Blue (B)", Format = "{0:F1}", DefaultValue = 0.9f, Min = 0f, Max = 1f, Step = 0.1f, Tooltip = "Re-equip Drone to apply changes", Order = 50)]
+        [Slider("<color=#81ffba>Drone</color> Light Blue (B)", Format = "{0:F1}", DefaultValue = 0.9f, Min = 0f, Max = 1f, Step = 0.1f, Tooltip = "Re-equip Drone to apply changes", Order = 50), OnChange(nameof(DroneUpdated))]
         public float Drone_Blue = 1f;
-        [Slider("<color=#81ffba>Drone</color> Light Range Multiplier (x)", Format = "{0:0.0}x", DefaultValue = 1f, Min = 0f, Max = 5f, Step = 0.1f, Tooltip = "Re-equip Drone to apply changes", Order = 51)]
+        [Slider("<color=#81ffba>Drone</color> Light Range Multiplier (x)", Format = "{0:0.0}x", DefaultValue = 1f, Min = 0f, Max = 5f, Step = 0.1f, Tooltip = "Re-equip Drone to apply changes", Order = 51), OnChange(nameof(DroneUpdated))]
         public float Drone_Range = 1f;
-        [Slider("<color=#81ffba>Drone</color> Light Intensity Multiplier (x)", Format = "{0:0.0}x", DefaultValue = 1f, Min = 0f, Max = 5f, Step = 0.1f, Tooltip = "Re-equip Drone to apply changes", Order = 52)]
+        [Slider("<color=#81ffba>Drone</color> Light Intensity Multiplier (x)", Format = "{0:0.0}x", DefaultValue = 1f, Min = 0f, Max = 5f, Step = 0.1f, Tooltip = "Re-equip Drone to apply changes", Order = 52), OnChange(nameof(DroneUpdated))]
         public float Drone_Intensity = 1f;
-        [Slider("<color=#81ffba>Drone</color> Light Cone Size Multipler (x)", Format = "{0:0.0}x", DefaultValue = 1f, Min = 0f, Max = 5f, Step = 0.1f, Tooltip = "Re-equip Drone to apply changes", Order = 53)]
+        [Slider("<color=#81ffba>Drone</color> Light Cone Size Multipler (x)", Format = "{0:0.0}x", DefaultValue = 1f, Min = 0f, Max = 5f, Step = 0.1f, Tooltip = "Re-equip Drone to apply changes", Order = 53), OnChange(nameof(DroneUpdated))]
         public float Drone_Conesize = 1f;
         [Button("Display custom color on screen", Order = 54)]
         public void Drone()
@@ -186,7 +186,7 @@ namespace Ramune.CustomizableLights
             Color color = new Color(Drone_Red, Drone_Green, Drone_Blue);
             string hex = ColorUtility.ToHtmlStringRGBA(color);
             ErrorMessage.AddError("<color=#" + hex + ">This is an example of your chosen color</color>");
-        }*/
+        }
 
         public void FlashlightUpdated(SliderChangedEventArgs e)
         {
@@ -208,9 +208,9 @@ namespace Ramune.CustomizableLights
         {
             Monos.CyclopsCL.updatedConfig = true;
         }
-        /*public void DroneUpdated(SliderChangedEventArgs e)
+        public void DroneUpdated(SliderChangedEventArgs e)
         {
             Monos.DroneCL.updatedConfig = true;
-        }*/
+        }
     }
 }

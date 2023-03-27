@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Ramune.CustomizableLights.Monos
 {
-    /*public class DroneCL : MonoBehaviour
+    public class DroneCL : MonoBehaviour
     {
         public static float range;
         public static float intensity;
@@ -43,16 +43,24 @@ namespace Ramune.CustomizableLights.Monos
             // Get lights
             if(!hasLights && gameObject.GetComponentsInChildren<Light>().Length > 0)
             {
-                lights = gameObject.GetComponentsInChildren<Light>();
-                hasLights = true; // Lights found, let's not do this again.
+                var parent = gameObject.FindChild("lights_parent");
+                if(parent != null)
+                {
+                    lights = parent.GetComponentsInChildren<Light>();
+                    hasLights = true; // Lights found, let's not do this again.
+                    //Log.Colored("Got parent ", Colors.Yellow);
+                }
             }else
 
             // Set the lights since we ACTUALLY fucking found them. I can't believe I got stuck here for days because I forgot how to get components..
             if(hasLights)
             {
+                //Log.Colored("hasLights", Colors.Pink);
                 // For each light in lights[]
                 for(int i = 0; i < lights.Length; i++)
                 {
+                    //Log.Colored($"{lights[i].name}", Colors.Lime);
+
                     // Set blah blah blah
                     lights[i].color = color;
                     lights[i].intensity = intensity;
@@ -63,5 +71,5 @@ namespace Ramune.CustomizableLights.Monos
             }
             return;
         }
-    }*/
+    }
 }

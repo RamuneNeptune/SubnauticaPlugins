@@ -63,7 +63,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Main.cs" />
+    <Compile Include="BepInEx.cs" />
     <Compile Include="Monos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Items.cs" />

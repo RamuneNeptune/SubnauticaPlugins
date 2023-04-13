@@ -1,6 +1,4 @@
 ﻿
-using System.Collections.Generic;
-using System.Linq;
 using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
@@ -12,6 +10,8 @@ namespace Ramune.LithiumBatteries
     [BepInProcess("Subnautica.exe")]
     public class LithiumBatteries : BaseUnityPlugin
     {
+        internal static Config config { get; } = OptionsPanelHandler.RegisterModOptions<Config>();
+
         private const string myGUID = "com.ramune.LithiumBatteries";
         private const string pluginName = "Lithium Batteries";
         private const string versionString = "1.0.0";

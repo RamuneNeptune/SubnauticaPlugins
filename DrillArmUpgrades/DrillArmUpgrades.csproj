@@ -70,7 +70,7 @@
     <Compile Include="Items\2-Magnetite.cs" />
     <Compile Include="Items\6-Ultimate.cs" />
     <Compile Include="Items\3-Diamond.cs" />
-    <Compile Include="Main.cs" />
+    <Compile Include="BepInEx.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Recipes.cs" />
   </ItemGroup>

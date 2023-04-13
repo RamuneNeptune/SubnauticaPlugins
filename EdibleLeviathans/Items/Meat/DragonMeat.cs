@@ -16,15 +16,15 @@ namespace Ramune.EdibleLeviathans.Items.Meat
     internal class CookedDragon : Craftable
     {
         public TechType thisTechType;
-        public CookedDragon() : base("CookedDragon", "Cooked Dragon Leviathan Meat", "Suprisingly not spicy, minty in-fact, .")
+        public CookedDragon() : base("CookedDragon", "Cooked Dragon Leviathan Meat", "SHU (Scoville Heat Units) of 1,733,095, consume with caution.")
         {
             OnFinishedPatching += () =>
             {
                 thisTechType = TechType;
-                EatableHandler.Main.ModifyEatable(thisTechType, 87f, 2f, false);
+                EatableHandler.Main.ModifyEatable(thisTechType, 89f, 2f, false);
             };
         }
-        public override string[] StepsToFabricatorTab => new string[] { "Survival", "CookedFood" };
+        public override string[] StepsToFabricatorTab => new string[] { "Survival", "CookedLeviathans" };
         public override CraftTree.Type FabricatorType => CraftTree.Type.Fabricator;
 
         protected override Atlas.Sprite GetItemSprite()

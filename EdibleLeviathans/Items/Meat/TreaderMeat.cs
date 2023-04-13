@@ -19,7 +19,7 @@ namespace Ramune.EdibleLeviathans.Items.Meat
     internal class CookedTreader : Craftable
     {
         public TechType thisTechType;
-        public CookedTreader() : base("CookedTreader", "Cooked Sea Treader meat", "Hang on a minute.. this tastes like sh#*!.. but it's refreshing..")
+        public CookedTreader() : base("CookedTreader", "Cooked Sea Treader meat", "Tastes terrible, smells terrible, and very refreshing.")
         {
             OnFinishedPatching += () =>
             {
@@ -27,7 +27,7 @@ namespace Ramune.EdibleLeviathans.Items.Meat
                 EatableHandler.Main.ModifyEatable(thisTechType, 45f, 100f, false);
             };
         }
-        public override string[] StepsToFabricatorTab => new string[] { "Survival", "CookedFood" };
+        public override string[] StepsToFabricatorTab => new string[] { "Survival", "CookedLeviathans" };
         public override CraftTree.Type FabricatorType => CraftTree.Type.Fabricator;
 
         protected override Atlas.Sprite GetItemSprite()

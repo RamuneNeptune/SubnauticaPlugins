@@ -74,7 +74,7 @@
     <Compile Include="Items\Meat\DragonMeat.cs" />
     <Compile Include="Items\Meat\ReaperMeat.cs" />
     <Compile Include="Items\Meat\TreaderMeat.cs" />
-    <Compile Include="Main.cs" />
+    <Compile Include="BepInEx.cs" />
     <Compile Include="Patch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

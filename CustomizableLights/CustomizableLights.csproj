@@ -77,7 +77,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Main.cs" />
+    <Compile Include="BepInEx.cs" />
     <Compile Include="Monos\Cyclops.cs" />
     <Compile Include="Monos\Drone.cs" />
     <Compile Include="Monos\Exosuit.cs" />

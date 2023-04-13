@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HarmonyLib;
+using RamuneLib.Utils;
 using SMLHelper.V2.Handlers;
 using UnityEngine;
 using UWE;
@@ -25,16 +26,30 @@ namespace Ramune.EdibleLeviathans
             if (pickupable != null) { /* ErrorMessage.AddError("<color=#ff2202>Pickupable WAS found.</color>"); */ return; }
             if (__instance.gameObject.name == "GhostLeviathan(Clone)" || __instance.gameObject.name == "ReaperLeviathan(Clone)" || __instance.gameObject.name == "SeaTreader(Clone)" || __instance.gameObject.name == "GhostLeviathanJuvenile(Clone)" || __instance.gameObject.name == "SeaDragonLeviathan(Clone)")
             {
-                ErrorMessage.AddError("<color=#1bc95a>Match found!</color>");
                 __instance.gameObject.EnsureComponent<Pickupable>();
-                //ErrorMessage.AddError($"<color=#1bc95a>Ensured component on:</color> <color=#afafaf>'{__instance.gameObject.name}'</color>");
-            }
-            else
-            {
-                ErrorMessage.AddError($"<color=#1bc95a>NO Matches!</color>, name is {__instance.gameObject.name}");
+                Pickupable pickupable_ = __instance.gameObject.GetComponent<Pickupable>();
+                pickupable_.overrideTechType = TechType.Quartz;
+                pickupable_.overrideTechUsed = true;
+                pickupable_.destroyOnDeath = false;
             }
         }
     }
+
+    /*[HarmonyPatch(typeof(Pickupable), nameof(Pickupable.Pickup))]
+    public static class PickupablePatch
+    {
+        public static void Prefix(Pickupable __instance)
+        {
+            if (__instance.inventoryItem.techType == TechType.ReaperLeviathan)
+            {
+                Log.Colored(Colors.Lime, $"Pickupable.Pickup | {__instance.inventoryItem.techType}");
+            }
+            else
+            {
+                Log.Colored(Colors.Red, $"Pickupable.Pickup | {__instance.inventoryItem.techType}");
+            }
+        }
+    }*/
 
     [HarmonyPatch(typeof(PlayerTool), nameof(PlayerTool.OnDraw))]
     public static class PlayerToolPatch

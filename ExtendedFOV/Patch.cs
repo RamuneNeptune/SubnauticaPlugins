@@ -4,6 +4,7 @@ using HarmonyLib;
 using UnityEngine;
 using System.Collections;
 using UWE;
+using UnityEngine.PlayerLoop;
 
 namespace Ramune.ExtendedFOV
 {
@@ -12,26 +13,31 @@ namespace Ramune.ExtendedFOV
     {
         public static void Postfix(Player __instance)
         {
-            __instance.gameObject.EnsureComponent<UpdaterForFOV>();
+            __instance.gameObject.EnsureComponent<FOVController>();
         }
     }
 
     [HarmonyPatch(typeof(PDACameraFOVControl), nameof(PDACameraFOVControl.Update))]
     public class PDACameraFOVControlPatch
     {
-        public static void Postfix(PDACameraFOVControl __instance)
+        public static void Prefix(PDACameraFOVControl __instance, bool __runOriginal)
         {
-            PDA pda = Player.main.GetPDA();
-            if(!pda.isInUse) UpdaterForFOV.updatedConfig = true;
+            __runOriginal = false;
+            PDA pda = Player.main.GetPDA();                        // Get the PDA component attached to the Player object and store it in the pda variable.
+            SNCameraRoot main = SNCameraRoot.main;                 // Get the SNCameraRoot component attached to the camera and store it in the main variable.
+            float b = pda.isInUse ? 60f : ExtendedFOV.config.FOV;  // If the player is using the PDA, set the field of view to 60, otherwise set it to the value defined in the MiscSettings class.
+            if(!Mathf.Approximately(ExtendedFOV.config.FOV, b))    // If the current field of view of the camera is not approximately equal to the target field of view...
+            {
+                float fov = Mathf.Lerp(ExtendedFOV.config.FOV, b, Time.unscaledDeltaTime * 3f);  // Interpolate between the current and target field of view over time and store the result in fov.
+                main.SetFov(fov);                                                                // Set the camera's field of view to the new value.
+            }
         }
     }
 
-    public class UpdaterForFOV : MonoBehaviour
+    public class FOVController : MonoBehaviour
     {
-        public static bool updatedConfig;
         public static bool flag;
-        public static bool flag1;
-
+        public static SNCameraRoot main = SNCameraRoot.main;
         public static Camera[] cameras;
         public static Camera camera;
         public static Camera UI;
@@ -45,37 +51,21 @@ namespace Ramune.ExtendedFOV
         {
             if(!flag && gameObject.GetComponentsInChildren<Camera>().Length > 0)
             {
-                cameras = gameObject.GetComponentsInChildren<Camera>();
-                foreach (var cam in cameras)
-                {
-                    if(cam.name == "MainCamera")
-                    {
-                        camera = cam;
-                        flag = true;
-
-                        UI = GameObject.Find("MainCamera (UI)").GetComponent<Camera>();
-                    }
-                }
+                camera = gameObject.GetComponentInChildren<Camera>();
+                UI = GameObject.Find("MainCamera (UI)").GetComponent<Camera>();
+                flag = true;
             }
-
-            if (!updatedConfig) return;
-            UpdateFOV();
-            updatedConfig = false;
         }
 
-        public static IEnumerator DelayedUpdateFOV()
+        public static IEnumerator UpdateFOV(float delay)
         {
-            if (camera != null && UI != null)
+            if(camera != null && UI != null)
             {
+                yield return new WaitForSeconds(delay);
                 camera.fieldOfView = ExtendedFOV.config.FOV;
-                yield return new WaitForSeconds(0.2f);
                 UI.fieldOfView = ExtendedFOV.config.FOV;
             }
-        }
-
-        public static void UpdateFOV()
-        {
-            CoroutineHost.StartCoroutine(DelayedUpdateFOV());
+            else ExtendedFOV.logger.LogWarning("Camera or UI is null in FOVController");
         }
     }
 }

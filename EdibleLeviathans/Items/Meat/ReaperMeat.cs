@@ -26,7 +26,7 @@ namespace Ramune.EdibleLeviathans.Items.Meat
                 EatableHandler.Main.ModifyEatable(thisTechType, 85f, 12f, false);
             };
         }
-        public override string[] StepsToFabricatorTab => new string[] { "Survival", "CookedFood" };
+        public override string[] StepsToFabricatorTab => new string[] { "Survival", "CookedLeviathans" };
         public override CraftTree.Type FabricatorType => CraftTree.Type.Fabricator;
 
         protected override Atlas.Sprite GetItemSprite()

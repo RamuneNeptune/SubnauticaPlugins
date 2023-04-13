@@ -51,7 +51,7 @@ namespace Ramune.OxygenCylinders
         [Keybind("Large Cylinder quick-consume Keybind", Tooltip = "Keybind used to quickly consume a Large Oxygen Canister")]
         public KeyCode LargeQuickUseKey = KeyCode.B;
 
-        [Toggle("Toggle Quick-consume notfication")]
+        [Toggle("Toggle Quick-consume notfication (on-screen)")]
         public bool Popup = true;
     }
 }

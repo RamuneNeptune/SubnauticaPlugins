@@ -15,6 +15,8 @@ namespace Ramune.KioniteBatteries
     [BepInProcess("Subnautica.exe")]
     public class KioniteBatteries : BaseUnityPlugin
     {
+        internal static Config config { get; } = OptionsPanelHandler.RegisterModOptions<Config>();
+
         private const string myGUID = "com.ramune.KioniteBatteries";
         private const string pluginName = "Kionite Batteries";
         private const string versionString = "1.0.0";

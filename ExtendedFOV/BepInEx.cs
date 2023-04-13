@@ -6,6 +6,7 @@ using SMLHelper.V2.Json;
 using SMLHelper.V2.Handlers;
 using SMLHelper.V2.Options;
 using UnityEngine;
+using UWE;
 
 namespace Ramune.ExtendedFOV
 {
@@ -33,12 +34,12 @@ namespace Ramune.ExtendedFOV
         [Menu("Extended FOV")]
         public class Config : ConfigFile
         {
-            [Slider("Field of view (FOV)", Format = "{0:F0}", DefaultValue = 80f, Min = 50f, Max = 160f, Step = 1f, Tooltip = "Default FOV = 80", Order = 1), OnChange(nameof(ForceUpdate))]
+            [Slider("Field of view (FOV)", Format = "{0:F0}", DefaultValue = 80f, Min = 50f, Max = 120f, Step = 1f, Order = 1), OnChange(nameof(ForceUpdate))]
             public float FOV = 80f;
 
             public void ForceUpdate(SliderChangedEventArgs e)
             {
-                UpdaterForFOV.updatedConfig = true;
+                CoroutineHost.StartCoroutine(FOVController.UpdateFOV(0.1f));
             }
         }
     }

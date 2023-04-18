@@ -3,11 +3,8 @@ using BepInEx.Logging;
 using BepInEx;
 using HarmonyLib;
 using SMLHelper.V2.Handlers;
-using Microsoft.SqlServer.Server;
 using SMLHelper.V2.Options.Attributes;
 using SMLHelper.V2.Options;
-using static RootMotion.FinalIK.GenericPoser;
-using UnityEngine;
 using SMLHelper.V2.Json;
 
 namespace Ramune.SolarPanelTweaker

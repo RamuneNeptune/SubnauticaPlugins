@@ -27,21 +27,45 @@ namespace Ramune.EdibleLeviathans
         }
     }
 
-    /*[HarmonyPatch(typeof(Pickupable), nameof(Pickupable.Pickup))]
-    public static class PickupablePatch
+    [HarmonyPatch(typeof(Survival), nameof(Survival.Eat))]
+    public static class SurvivalPatch
     {
-        public static void Prefix(Pickupable __instance)
+        public const string GhostSubtitle = "Warning: the consumption of Ghost Leviathan meat is highly inadvisable due to its tendency to harbor copious amounts of harmful bacteria. Ingesting this meat can cause undesirable effects, such as pneumonia, something, something, and in rare cases, death. It is highly recommended that you exercise caution and refrain from consuming this type of meat in order to ensure your continued well-being.";
+        public const string ReaperSubtitle = "Upon analysis, Reaper Leviathan meat has been found to contain high levels of protein and essential vitamins and minerals, making it a potentially valuable source of nutrition for survivors. However, due to its high fat content, it is recommended to consume this meat in moderation as part of a balanced diet. It should also be noted that consuming Reaper Leviathan meat carries certain risks, as the creature is known for its aggressive nature and powerful attacks. As such, it is advised that you exercise caution and use appropriate safety measures when hunting and preparing this type of meat.";
+        public const string TreaderSubtitle = "Warning: the consumption of Sea Treader meat is not recommended due to its high levels of toxins. Ingesting this meat can lead to severe cases of food poisoning, resulting in symptoms such as nausea, vomiting, and diarrhea. It is highly advised that you do not consume this type of meat under any circumstances, as the toxins present within it can cause long-lasting damage to the body. Please exercise caution and avoid consuming Sea Treader meat in order to ensure your continued well-being.";
+        public const string DragonSubtitle = "Warning: the consumption of Sea Dragon meat is not recommended for those with a low tolerance for heat. This meat has been found to have a Scoville unit rating of 1,733,095, making it extremely spicy. Ingesting this meat may cause discomfort and potential damage to the digestive system. It is advised that you approach the consumption of this meat with caution and only do so if you are confident in your ability to tolerate its spiciness.";
+        public static bool Ghost;
+        public static bool Reaper;
+        public static bool Treader;
+        public static bool Dragon;
+
+        public static void Postfix(Survival __instance, GameObject useObj)
         {
-            if (__instance.inventoryItem.techType == TechType.ReaperLeviathan)
+            switch (useObj.name)
             {
-                Log.Colored(Colors.Lime, $"Pickupable.Pickup | {__instance.inventoryItem.techType}");
-            }
-            else
-            {
-                Log.Colored(Colors.Red, $"Pickupable.Pickup | {__instance.inventoryItem.techType}");
+                case "CookedGhost(Clone)":
+                    if(!Ghost) Subtitles.Add(GhostSubtitle, null);
+                    Ghost = true;
+                    break;
+                case "CookedGhostAlt(Clone)":
+                    if(!Ghost) Subtitles.Add(GhostSubtitle, null);
+                    Ghost = true;
+                    break;
+                case "CookedReaper(Clone)":
+                    if(!Reaper) Subtitles.Add(ReaperSubtitle, null);
+                    Reaper = true;
+                    break;
+                case "CookedTreader(Clone)":
+                    if(!Treader) Subtitles.Add(TreaderSubtitle, null);
+                    Treader = true;
+                    break;
+                case "CookedDragon(Clone)":
+                    if(!Dragon) Subtitles.Add(DragonSubtitle, null);
+                    Dragon = true;
+                    break;
             }
         }
-    }*/
+    }
 
     [HarmonyPatch(typeof(PlayerTool), nameof(PlayerTool.OnDraw))]
     public static class PlayerToolPatch
@@ -56,45 +80,4 @@ namespace Ramune.EdibleLeviathans
             }
         }
     }
-
-    /*
-    public class RainbowColor : MonoBehaviour
-    {
-        private Material[] allMaterials;
-        public float currentTime = 0f;
-        public float duration = 1f;
-
-        void Start()
-        {
-            Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
-            List<Material> materialsList = new List<Material>();
-            foreach (Renderer renderer in renderers)
-            {
-                Material[] materials = renderer.materials;
-                materialsList.AddRange(materials);
-            }
-            allMaterials = materialsList.ToArray();
-        }
-
-        void Update()
-        {
-            Light[] lights = gameObject.GetComponentsInChildren<Light>();
-            currentTime += Time.deltaTime / duration;
-            if(currentTime >= 1f) currentTime -= 1f;
-            Color color = Color.HSVToRGB(currentTime, 1f, 1f);
-
-            foreach (var mat in allMaterials) if (mat != null) mat.color = color;
-            foreach (var light in lights) if (light != null) light.color = color;
-        }
-    }
-
-    [HarmonyPatch(typeof(SubRoot), nameof(SubRoot.Start))]
-    public static class SubRootPatch
-    {
-        public static void Postfix(SubRoot __instance)
-        {
-            if (!__instance.isCyclops) return;
-            __instance.gameObject.EnsureComponent<RainbowColor>();
-        }
-    }*/
 }

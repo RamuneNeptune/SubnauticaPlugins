@@ -34,9 +34,9 @@ namespace Ramune.SolarPanelTweaker
     [Menu("Solar Panel Tweaker")]
     public class Config : ConfigFile
     {
-        [Slider("<color=#FFC029>Solar Panel</color> max power", Format = "{0:F1}", DefaultValue = 75f, Min = 1f, Max = 1000f, Step = 1f), OnChange(nameof(UpdateConfig))]
+        [Slider("<color=#FFC029>Solar Panel</color> max power", Format = "{0:F0", DefaultValue = 75f, Min = 1f, Max = 1000f, Step = 1f), OnChange(nameof(UpdateConfig))]
         public float maxPower = 75f;
-        [Slider("<color=#FFC029>Solar Panel</color> max depth", Format = "{0:F1}", DefaultValue = 200f, Min = 1f, Max = 3000f, Step = 1f), OnChange(nameof(UpdateConfig))]
+        [Slider("<color=#FFC029>Solar Panel</color> max depth", Format = "{0:F0}", DefaultValue = 200f, Min = 1f, Max = 3000f, Step = 1f), OnChange(nameof(UpdateConfig))]
         public float maxDepth = 200f;
 
         public void UpdateConfig(SliderChangedEventArgs e)

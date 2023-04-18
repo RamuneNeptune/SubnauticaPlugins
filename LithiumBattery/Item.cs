@@ -50,7 +50,7 @@ namespace Ramune.LithiumBatteries
 
             resultPrefab.EnsureComponent<Battery>();
             battery = resultPrefab.GetComponentInChildren<Battery>();
-            battery._capacity = 200f;
+            battery._capacity = LithiumBatteries.config.batteryEnergy;
 
             MeshRenderer renderer = resultPrefab.GetComponentInChildren<MeshRenderer>();
             renderer.material.mainTexture = Battery_tex;
@@ -111,7 +111,7 @@ namespace Ramune.LithiumBatteries
             resultPrefab.EnsureComponent<Battery>();
 
             battery = resultPrefab.GetComponentInChildren<Battery>();
-            battery._capacity = 400f;
+            battery._capacity = LithiumBatteries.config.powercellEnergy;
 
             MeshRenderer renderer = resultPrefab.GetComponentInChildren<MeshRenderer>();
             renderer.material.mainTexture = Powercell_tex;

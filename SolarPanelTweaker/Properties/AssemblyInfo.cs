@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Testing")]
+[assembly: AssemblyTitle("SolarPanelTweaker")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Testing")]
+[assembly: AssemblyProduct("SolarPanelTweaker")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("ed2ed69a-72ca-4ae1-a2c9-bef1c3047e19")]
+[assembly: Guid("ef988945-22c7-4fc6-98fc-4019c122574f")]
 
 // Version information for an assembly consists of the following four values:
 //

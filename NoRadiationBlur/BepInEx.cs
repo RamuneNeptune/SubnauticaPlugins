@@ -3,14 +3,14 @@ using BepInEx.Logging;
 using BepInEx;
 using HarmonyLib;
 
-namespace Testing
+namespace Ramune.NoRadiationBlur
 {
     [BepInPlugin(myGUID, pluginName, versionString)]
     [BepInProcess("Subnautica.exe")]
-    public class Testing : BaseUnityPlugin
+    public class NoRadiationBlur : BaseUnityPlugin
     {
-        private const string myGUID = "com.ramune.Testing";
-        private const string pluginName = "Testing";
+        private const string myGUID = "com.ramune.NoRadiationBlur";
+        private const string pluginName = "No Radiation Blur";
         private const string versionString = "1.0.0";
 
         private static readonly Harmony harmony = new Harmony(myGUID);

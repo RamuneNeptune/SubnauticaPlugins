@@ -8,6 +8,7 @@ using SMLHelper.V2.Options.Attributes;
 using SMLHelper.V2.Json;
 using UnityEngine;
 using SMLHelper.V2.Options;
+using System.Collections.Generic;
 
 namespace Ramune.CustomizableLights
 {

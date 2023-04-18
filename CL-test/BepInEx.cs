@@ -1,37 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using Main = Ramune.CustomizableLights.CustomizableLights;
 using BepInEx.Logging;
 using BepInEx;
 using HarmonyLib;
-using SMLHelper.V2.Crafting;
 using SMLHelper.V2.Handlers;
+using SMLHelper.V2.Options.Attributes;
+using SMLHelper.V2.Json;
+using UnityEngine;
+using SMLHelper.V2.Options;
+using Microsoft.SqlServer.Server;
+using RamuneLib.Utils;
 
-namespace Ramune.DrillArmUpgrades
+namespace Ramune.CustomizableLights
 {
     [BepInPlugin(myGUID, pluginName, versionString)]
     [BepInProcess("Subnautica.exe")]
-    public class DrillArmUpgrades : BaseUnityPlugin
+    public class CustomizableLights : BaseUnityPlugin
     {
-        private const string myGUID = "com.ramune.DrillArmUpgrades";
-        private const string pluginName = "Drill Arm Upgrades";
+        private const string myGUID = "com.ramune.CustomizableLights";
+        private const string pluginName = "Customizable Lights";
         private const string versionString = "1.0.0";
 
         private static readonly Harmony harmony = new Harmony(myGUID);
         public static ManualLogSource logger;
+        private static Config ModConfig;
 
         public void Awake()
         {
+            ModConfig = new Config();
+            OptionsPanelHandler.RegisterModOptions(ModConfig);
             harmony.PatchAll();
             Logger.LogInfo(pluginName + " " + versionString + " " + "has been loaded! (yay)");
             logger = Logger;
 
             StartCoroutine(RamuneLib.Main.Sprite.GetSubmodicaSprites());
-
-            new Items.EnhancedDrillArm().Patch(); Logger.LogInfo("1/6 Enhanced Drill Arm: patched");
-            CraftTreeHandler.AddTabNode(CraftTree.Type.Workbench, "DrillArms", "Drill Arms", SpriteManager.Get(TechType.ExosuitDrillArmModule));
         }
     }
 }

@@ -90,7 +90,7 @@ namespace Ramune.KioniteBatteries
             resultPrefab.EnsureComponent<Battery>();
 
             battery = resultPrefab.GetComponentInChildren<Battery>();
-            battery._capacity = 750f;
+            battery._capacity = KioniteBatteries.config.batteryEnergy;
 
             MeshRenderer renderer = resultPrefab.GetComponentInChildren<MeshRenderer>();
             renderer.material.mainTexture = Battery_tex;
@@ -153,7 +153,7 @@ namespace Ramune.KioniteBatteries
             resultPrefab.EnsureComponent<Battery>();
 
             battery = resultPrefab.GetComponentInChildren<Battery>();
-            battery._capacity = 1500f;
+            battery._capacity = KioniteBatteries.config.powercellEnergy;
 
             MeshRenderer renderer = resultPrefab.GetComponentInChildren<MeshRenderer>();
             renderer.material.mainTexture = Powercell_tex;

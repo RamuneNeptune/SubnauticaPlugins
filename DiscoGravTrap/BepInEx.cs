@@ -35,12 +35,16 @@ namespace Ramune.DiscoGravTrap
     [Menu("Disco Grav Trap")]
     public class Config : ConfigFile
     {
-        [Slider("Time between color changes (seconds)", Format = "{0:0.0}s", DefaultValue = 1f, Min = 0.1f, Max = 5f, Step = 0.1f, Order = 0), OnChange(nameof(UpdateConfig))]
-        public float delay = 1f;
+        [Slider("Light loop duration (seconds)", Format = "{0:0.0}s", DefaultValue = 5f, Min = 0.1f, Max = 20f, Step = 0.1f)]
+        public float transitionTime = 5f;
 
-        public void UpdateConfig()
-        {
+        [Slider("Light saturation", Format = "{0:0.0}", DefaultValue = 0.7f, Min = 0.1f, Max = 1f, Step = 0.1f)]
+        public float saturation = 0.7f;
 
-        }
+        [Slider("Light opacity", Format = "{0:0.0}", DefaultValue = 0.3f, Min = 0.1f, Max = 1f, Step = 0.1f)]
+        public float opacity = 0.3f;
+
+        [Slider("Light radius (x)", Format = "{0:0.0}x", DefaultValue = 1f, Min = 0.1f, Max = 30f, Step = 0.1f)]
+        public float radius = 1f;
     }
 }

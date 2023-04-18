@@ -1,17 +1,9 @@
-﻿using System;
-using System.Collections;
+﻿
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using HarmonyLib;
 using RamuneLib.Utils;
-using SMLHelper.V2.Handlers;
 using UnityEngine;
-using UWE;
-using static DeferredSpawner;
-using static GameInput;
-using static HandReticle;
+using UnityEngine.UI;
 
 namespace Ramune.EdibleLeviathans
 {
@@ -64,4 +56,45 @@ namespace Ramune.EdibleLeviathans
             }
         }
     }
+
+    /*
+    public class RainbowColor : MonoBehaviour
+    {
+        private Material[] allMaterials;
+        public float currentTime = 0f;
+        public float duration = 1f;
+
+        void Start()
+        {
+            Renderer[] renderers = gameObject.GetComponentsInChildren<Renderer>();
+            List<Material> materialsList = new List<Material>();
+            foreach (Renderer renderer in renderers)
+            {
+                Material[] materials = renderer.materials;
+                materialsList.AddRange(materials);
+            }
+            allMaterials = materialsList.ToArray();
+        }
+
+        void Update()
+        {
+            Light[] lights = gameObject.GetComponentsInChildren<Light>();
+            currentTime += Time.deltaTime / duration;
+            if(currentTime >= 1f) currentTime -= 1f;
+            Color color = Color.HSVToRGB(currentTime, 1f, 1f);
+
+            foreach (var mat in allMaterials) if (mat != null) mat.color = color;
+            foreach (var light in lights) if (light != null) light.color = color;
+        }
+    }
+
+    [HarmonyPatch(typeof(SubRoot), nameof(SubRoot.Start))]
+    public static class SubRootPatch
+    {
+        public static void Postfix(SubRoot __instance)
+        {
+            if (!__instance.isCyclops) return;
+            __instance.gameObject.EnsureComponent<RainbowColor>();
+        }
+    }*/
 }

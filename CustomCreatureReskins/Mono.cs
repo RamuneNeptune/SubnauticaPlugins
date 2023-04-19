@@ -10,7 +10,7 @@ namespace Ramune.CustomCreatureReskins
 {
     public class CreatureReskinHandler : MonoBehaviour
     {
-        public Texture2D GetTexture(string creature) => ImageUtils.LoadTextureFromFile(Path.Combine(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Assets", creature, creature + ".png")));
+        public Texture2D GetTexture(string foldername, string filename) => ImageUtils.LoadTextureFromFile(Path.Combine(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Assets", foldername, filename + ".png")));
         public List<string> cr = CreaturePatch.creatures;
         public SkinnedMeshRenderer renderer;
 
@@ -71,7 +71,7 @@ namespace Ramune.CustomCreatureReskins
                     {
                         if(mat.name == "")
                         {
-                            mat.mainTexture = GetTexture("ReaperLeviathan");
+                            mat.mainTexture = GetTexture("ReaperLeviathan", "ReaperLeviathan_Body");
                             Main.logger.LogInfo("Set 'Reaper Leviathan' skin to custom texture");
                             break;
                         }
@@ -82,7 +82,7 @@ namespace Ramune.CustomCreatureReskins
                     {
                         if(mat.name == "")
                         {
-                            mat.mainTexture = GetTexture("GhostLeviathan");
+                            mat.mainTexture = GetTexture("GhostLeviathan", "GhostLeviathan_Body");
                             Main.logger.LogInfo("Set 'Ghost Leviathan' skin to custom texture");
                             break;
                         }
@@ -94,7 +94,7 @@ namespace Ramune.CustomCreatureReskins
                     {
                         if(mat.name == "")
                         {
-                            mat.mainTexture = GetTexture("GhostLeviathanJuvenile");
+                            mat.mainTexture = GetTexture("GhostLeviathanJuvenile", "GhostLeviathanJuvenile_Body");
                             Main.logger.LogInfo("Set 'Ghost Leviathan Juvenile' skin to custom texture");
                             break;
                         }
@@ -106,7 +106,7 @@ namespace Ramune.CustomCreatureReskins
                     {
                         if(mat.name == "")
                         {
-                            mat.mainTexture = GetTexture("SeaTreader");
+                            mat.mainTexture = GetTexture("SeaTreader", "SeaTreader_Body");
                             Main.logger.LogInfo("Set 'Sea Treader' skin to custom texture");
                             break;
                         }
@@ -118,7 +118,7 @@ namespace Ramune.CustomCreatureReskins
                     {
                         if(mat.name == "")
                         {
-                            mat.mainTexture = GetTexture("SeaDragon");
+                            mat.mainTexture = GetTexture("SeaDragon", "SeaDragon_Body");
                             Main.logger.LogInfo("Set 'Sea Dragon' skin to custom texture");
                             break;
                         }

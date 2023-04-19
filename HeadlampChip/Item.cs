@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SMLHelper.V2.Assets;
 using SMLHelper.V2.Crafting;
+using SMLHelper.V2.Utility;
 using UnityEngine;
 
 namespace Ramune.HeadlampChip
@@ -22,7 +23,7 @@ namespace Ramune.HeadlampChip
             };
         }
         public override string AssetsFolder => Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Assets");
-        protected override Atlas.Sprite GetItemSprite() => SpriteManager.Get(TechType.Marki1);
+        protected override Atlas.Sprite GetItemSprite() => ImageUtils.LoadSpriteFromFile(Path.Combine(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Assets"), "Chip.png"));
         public override EquipmentType EquipmentType => EquipmentType.Chip;
         public override QuickSlotType QuickSlotType => QuickSlotType.None;
         public override CraftTree.Type FabricatorType => CraftTree.Type.Fabricator;

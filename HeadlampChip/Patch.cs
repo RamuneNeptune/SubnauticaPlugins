@@ -18,16 +18,4 @@ namespace Ramune.HeadlampChip
             __instance.gameObject.EnsureComponent<HeadlampChipMono>();
         }
     }
-
-    [HarmonyPatch(typeof(Inventory), nameof(Inventory.OnAddItem))]
-    public static class InventoryPatch
-    {
-        [HarmonyPostfix]
-        public static void Postfix(Inventory __instance, InventoryItem item)
-        {
-            if(item != null && item.techType == TechType.None)
-            {
-            }
-        }
-    }
 }

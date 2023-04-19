@@ -1,6 +1,7 @@
 ﻿
 using System.Collections.Generic;
 using HarmonyLib;
+using Ramune.EdibleLeviathans.Items.Meat;
 using RamuneLib.Utils;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,21 +13,23 @@ namespace Ramune.EdibleLeviathans
     {
         public static void Prefix(Creature __instance)
         {
-            //ErrorMessage.AddError($"{__instance.gameObject.name}");
             Pickupable pickupable = __instance.gameObject.GetComponentInChildren<Pickupable>();
 
-            if (pickupable != null) { /* ErrorMessage.AddError("<color=#ff2202>Pickupable WAS found.</color>"); */ return; }
-            if (__instance.gameObject.name == "GhostLeviathan(Clone)" || __instance.gameObject.name == "ReaperLeviathan(Clone)" || __instance.gameObject.name == "SeaTreader(Clone)" || __instance.gameObject.name == "GhostLeviathanJuvenile(Clone)" || __instance.gameObject.name == "SeaDragonLeviathan(Clone)")
-            {
-                __instance.gameObject.EnsureComponent<Pickupable>();
-                Pickupable pickupable_ = __instance.gameObject.GetComponent<Pickupable>();
-                pickupable_.overrideTechType = TechType.Quartz;
-                pickupable_.overrideTechUsed = true;
-                pickupable_.destroyOnDeath = false;
-            }
+            if(pickupable != null) return;
+            if(__instance.gameObject.name == "GhostLeviathan(Clone)" || __instance.gameObject.name == "ReaperLeviathan(Clone)" || __instance.gameObject.name == "SeaTreader(Clone)" || __instance.gameObject.name == "GhostLeviathanJuvenile(Clone)" || __instance.gameObject.name == "SeaDragonLeviathan(Clone)") __instance.gameObject.EnsureComponent<Pickupable>();
         }
     }
 
+    [HarmonyPatch(typeof(Inventory), nameof(Inventory.OnAddItem))]
+    public static class InventoryPatch
+    {
+        [HarmonyPostfix]
+        public static void Postfix(Inventory __instance, InventoryItem item)
+        {
+            if(item != null && item.techType == TechType.GhostLeviathan) Log.Colored(Colors.Lime, "GhostLeviathan added to inventory..");
+            else Log.Colored(Colors.Green, $"{item.techType} added to inventory..");
+        }
+    }
     [HarmonyPatch(typeof(Survival), nameof(Survival.Eat))]
     public static class SurvivalPatch
     {

@@ -16,7 +16,7 @@ namespace Ramune.EdibleLeviathans.Items.Meat
 {
     internal class CookedGhost : Craftable
     {
-        public TechType thisTechType;
+        public static TechType thisTechType;
         public CookedGhost() : base("CookedGhost", "Cooked Ghost Leviathan meat", "Chewy, a little burnt, and filled with bioluminescence.")
         {
             OnFinishedPatching += () =>

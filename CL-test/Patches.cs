@@ -39,9 +39,9 @@ namespace Ramune.CustomizableLights
     {
         public static void Postfix(SeaMoth __instance)
         {
-            Log.Colored(Colors.Yellow, "Adding component to <b>SEAMOTH</b>");
+            //Log.Colored(Colors.Yellow, "Adding component to <b>SEAMOTH</b>");
             __instance.gameObject.EnsureComponent<SeamothCL>();
-            Log.Colored(Colors.Green, "Added component to <b>SEAMOTH</b>");
+            //Log.Colored(Colors.Green, "Added component to <b>SEAMOTH</b>");
         }
     }
 

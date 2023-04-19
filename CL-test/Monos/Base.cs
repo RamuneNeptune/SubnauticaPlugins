@@ -34,8 +34,8 @@ namespace Ramune.CustomizableLights
             {
                 Lights = gameObject.GetComponentsInChildren<Light>();
                 HasLights = true;
-                Log.Colored(Colors.Blue, $"<b>Found lights</b>: {Lights.Length}");
-                Main.logger.LogInfo("Found lights:" + Lights.Length);
+                //Log.Colored(Colors.Blue, $"<b>Found lights</b>: {Lights.Length}");
+                //Main.logger.LogInfo("Found lights:" + Lights.Length);
                 Refresh();
             }
         }
@@ -56,7 +56,7 @@ namespace Ramune.CustomizableLights
                 li.spotAngle = 50f * config.z;        //conesize
                 li.innerSpotAngle = 53.4f * config.z; //conesize
 
-                */Log.Colored(Colors.Blue, $"<b>Set light</b>");/*
+                Log.Colored(Colors.Blue, $"<b>Set light</b>");
             }*/
         }
     }

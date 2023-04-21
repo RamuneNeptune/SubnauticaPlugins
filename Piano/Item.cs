@@ -38,10 +38,14 @@ namespace Ramune.CyclopsStasisDecoys
             prefab.EnsureComponent<SkyApplier>().renderers = renderers;
             var marmoset = Shader.Find("MarmosetUBER");
             foreach(var renderer in renderers) renderer.materials.ForEach((mat) => mat.shader = marmoset);
-            prefab.EnsureComponent<Pickupable>();
-            prefab.EnsureComponent<PlayerTool>();
-            prefab.AddComponent<LargeWorldEntity>().cellLevel = LargeWorldEntity.CellLevel.Far;
-            prefab.AddComponent<PrefabIdentifier>().ClassId = ClassID;
+            prefab.EnsureComponent<LongBladeTool>();
+            prefab.EnsureComponent<LargeWorldEntity>().cellLevel = LargeWorldEntity.CellLevel.Far;
+            prefab.EnsureComponent<PrefabIdentifier>().ClassId = ClassID;
+            prefab.EnsureComponent<CapsuleCollider>();
+            prefab.EnsureComponent<Rigidbody>();
+            Pickupable pickupable = prefab.EnsureComponent<Pickupable>();
+            pickupable.enabled = true;
+
             yield return null;
             gameObject.Set(prefab);
         }

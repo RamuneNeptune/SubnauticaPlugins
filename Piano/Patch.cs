@@ -11,15 +11,4 @@ namespace Ramune.CyclopsStasisDecoys
             __instance.decoyPrefab.EnsureComponent<DecoyStasisHandler>(); // Adding the custom component (the stasis one) to the Decoy (*before* being fired)
         }
     }
-
-    [HarmonyPatch(typeof(PlayerTool))]
-    internal class PlayerToolPatches
-    {
-        [HarmonyPatch(nameof(PlayerTool.animToolName))]
-        [HarmonyPatch(MethodType.Getter)]
-        public static void Postfix(PlayerTool __instance, ref string __result)
-        {
-            if(__instance.pickupable?.GetTechType() == LongBlade.thisTechType) __result = "knife";
-        }
-    }
 }

@@ -1,9 +1,38 @@
 ﻿
 using UnityEngine;
 using System.Collections;
+using RamuneLib.Utils;
+using FMOD.Studio;
 
 namespace Ramune.CyclopsStasisDecoys
 {
+    public class LongBladeTool : Knife
+    {
+        public void Start()
+        {
+            base.attackDist = 2f;
+            base.damage = 30f;
+            base.bashTime = 0.3f;
+            base.damageType = DamageType.Heat;
+            base.energyMixin = gameObject.EnsureComponent<EnergyMixin>();
+            Log.Colored(Colors.Blue, "Set values & energyMixin..");
+        }
+
+        public override int GetUsesPerHit()
+        {
+            return 2;
+        }
+
+        public override string animToolName
+        {
+            get
+            {
+                Log.Colored(Colors.Pink, "Getting 'animToolName'..");
+                Log.Colored(Colors.Pink, "Returning 'knife'..");
+                return "knife";
+            }
+        }
+    }
     public class DecoyStasisHandler : MonoBehaviour
     {
         public StasisSphere sphere;

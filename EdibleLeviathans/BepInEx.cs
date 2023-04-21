@@ -3,6 +3,7 @@ using System.IO;
 using System.Reflection;
 using BepInEx;
 using BepInEx.Logging;
+using FMOD;
 using HarmonyLib;
 using SMLHelper.V2.Handlers;
 using SMLHelper.V2.Utility;
@@ -84,11 +85,11 @@ namespace Ramune.EdibleLeviathans
             
             logger.LogInfo("2/3: Item sizes, tooltips, and such, done");
 
-            new Items.Meat.CookedReaper().Patch();
-            new Items.Meat.CookedGhost().Patch();
-            new Items.Meat.CookedGhostAlt().Patch();
-            new Items.Meat.CookedTreader().Patch();
-            new Items.Meat.CookedDragon().Patch();
+            new Items.CookedReaper().Patch();
+            new Items.CookedGhost().Patch();
+            new Items.CookedGhostAlt().Patch();
+            new Items.CookedTreader().Patch();
+            new Items.CookedDragon().Patch();
 
             logger.LogInfo("3/3: Leviathan meats patched");
         }

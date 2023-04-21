@@ -8,7 +8,7 @@ namespace Ramune.HeadlampChip
 {
     public class HeadlampChipMono : MonoBehaviour
     {
-        public float offset = 1f;
+        public float offset = 0.94f;
         public int lightState;
         public GameObject lightRoot;
         public Equipment chip;

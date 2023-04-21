@@ -12,7 +12,7 @@ using static Atlas;
 using Object = UnityEngine.Object;
 
 
-namespace Ramune.EdibleLeviathans.Items.Meat
+namespace Ramune.EdibleLeviathans.Items
 {
     internal class CookedGhost : Craftable
     {

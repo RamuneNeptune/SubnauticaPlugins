@@ -9,21 +9,19 @@ using SMLHelper.V2.Crafting;
 using SMLHelper.V2.Handlers;
 using SMLHelper.V2.Utility;
 using UnityEngine;
-using static Atlas;
 
 
-
-namespace Ramune.EdibleLeviathans.Items.Meat
+namespace Ramune.EdibleLeviathans.Items
 {
-    internal class CookedReaper : Craftable
+    internal class CookedDragon : Craftable
     {
         public TechType thisTechType;
-        public CookedReaper() : base("CookedReaper", "Cooked Reaper Leviathan Meat", "Tough, hearty, and fit for a king or queen.")
+        public CookedDragon() : base("CookedDragon", "Cooked Dragon Leviathan Meat", "SHU (Scoville Heat Units) of 1,733,095, consume with caution.")
         {
             OnFinishedPatching += () =>
             {
                 thisTechType = TechType;
-                EatableHandler.Main.ModifyEatable(thisTechType, 85f, 12f, false);
+                EatableHandler.Main.ModifyEatable(thisTechType, 89f, 2f, false);
             };
         }
         public override string[] StepsToFabricatorTab => new string[] { "Survival", "CookedLeviathans" };
@@ -31,7 +29,7 @@ namespace Ramune.EdibleLeviathans.Items.Meat
 
         protected override Atlas.Sprite GetItemSprite()
         {
-            Atlas.Sprite sprite = ImageUtils.LoadSpriteFromFile(Path.Combine(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Assets"), "ReaperMeat.png"));
+            Atlas.Sprite sprite = ImageUtils.LoadSpriteFromFile(Path.Combine(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Assets"), "DragonMeat.png"));
             return sprite;
         }
 
@@ -42,7 +40,7 @@ namespace Ramune.EdibleLeviathans.Items.Meat
                 craftAmount = 5,
                 Ingredients = new List<Ingredient>(new Ingredient[]
                 {
-                    new Ingredient (TechType.ReaperLeviathan, 1),
+                    new Ingredient (TechType.SeaDragon, 1),
                 }),
             };
         }

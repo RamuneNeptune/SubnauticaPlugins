@@ -1,21 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using BepInEx.Logging;
 using BepInEx;
 using HarmonyLib;
-using SMLHelper.V2.Handlers;
 
-namespace Ramune.SavesMyEyesCE
+namespace Ramune.Piano
 {
     [BepInPlugin(myGUID, pluginName, versionString)]
     [BepInProcess("Subnautica.exe")]
-    public class SaveMyEyesCE : BaseUnityPlugin
+    public class Piano : BaseUnityPlugin
     {
-        private const string myGUID = "com.ramune.SaveMyEyesCE";
-        private const string pluginName = "Save My Eyes : Collective Edition";
+        private const string myGUID = "com.ramune.Piano";
+        private const string pluginName = "Piano";
         private const string versionString = "1.0.0";
 
         private static readonly Harmony harmony = new Harmony(myGUID);

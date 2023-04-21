@@ -81,7 +81,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WIP", "WIP", "{5B0C2342-D30
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomCreatureReskins", "CustomCreatureReskins\CustomCreatureReskins.csproj", "{034A2E8B-A2BE-4070-A19F-C6AC452CD497}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Piano", "Piano\Piano.csproj", "{5B85B53C-52BF-46E4-9A4F-58C8C900869F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyclopsStasisDecoys", "Piano\CyclopsStasisDecoys.csproj", "{5B85B53C-52BF-46E4-9A4F-58C8C900869F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

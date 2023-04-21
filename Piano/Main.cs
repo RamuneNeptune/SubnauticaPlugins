@@ -1,24 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using BepInEx.Logging;
 using BepInEx;
 using HarmonyLib;
+using System.Reflection;
+using UnityEngine;
+using System.IO;
 
-namespace Ramune.Piano
+namespace Ramune.CyclopsStasisDecoys
 {
     [BepInPlugin(myGUID, pluginName, versionString)]
     [BepInProcess("Subnautica.exe")]
-    public class Piano : BaseUnityPlugin
+    public class CyclopsStasisDecoys : BaseUnityPlugin
     {
-        private const string myGUID = "com.ramune.Piano";
-        private const string pluginName = "Piano";
+        private const string myGUID = "com.ramune.CyclopsStasisDecoys";
+        private const string pluginName = "Cyclops Stasis Decoys";
         private const string versionString = "1.0.0";
-
+        public static AssetBundle LongBladeAsset = AssetBundle.LoadFromFile(Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "Assets", "longblade"));
         private static readonly Harmony harmony = new Harmony(myGUID);
         public static ManualLogSource logger;
 
@@ -29,6 +26,8 @@ namespace Ramune.Piano
             logger = Logger;
 
             StartCoroutine(RamuneLib.Main.Sprite.GetSubmodicaSprites());
+
+            new LongBlade().Patch();
         }
     }
 }

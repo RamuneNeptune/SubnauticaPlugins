@@ -1,16 +1,8 @@
 ﻿
 using UnityEngine;
-using FMOD;
-using FMODUnity;
-using SMLHelper.V2.Utility;
-using System.IO;
-using System.Reflection;
-using RamuneLib.Utils;
-using System.Threading.Tasks;
 using System.Collections;
-using SMLHelper.V2.Handlers;
 
-namespace Ramune.Piano
+namespace Ramune.CyclopsStasisDecoys
 {
     public class DecoyStasisHandler : MonoBehaviour
     {
@@ -27,8 +19,7 @@ namespace Ramune.Piano
         public IEnumerator DeployStasis()
         {
             yield return new WaitForSecondsRealtime(3f); // Wait for 3 seconds
-            pos = transform.position; // Set 'pos' to the decoy position
-            sphere.Shoot(pos, quaternion, 0.1f, 5f, 10f); // Shoot the stasis sphere
+            sphere.Shoot(transform.position, quaternion, 0.1f, 5f, 10f); // Shoot the stasis sphere
             sphere.EnableField(); // then activate the stasis sphere field (the bubble)
         }
     }

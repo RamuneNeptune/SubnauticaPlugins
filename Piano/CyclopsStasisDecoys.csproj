@@ -7,8 +7,8 @@
     <ProjectGuid>{5B85B53C-52BF-46E4-9A4F-58C8C900869F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ramune.Piano</RootNamespace>
-    <AssemblyName>Piano</AssemblyName>
+    <RootNamespace>Ramune.CyclopsStasisDecoys</RootNamespace>
+    <AssemblyName>CyclopsStasisDecoys</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -64,6 +64,10 @@
     <Reference Include="UnityEngine">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SubnauticaBranches\Stable\Subnautica_Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
+    <Reference Include="UnityEngine.AssetBundleModule, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SubnauticaBranches\Stable\Subnautica_Data\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
+    </Reference>
     <Reference Include="UnityEngine.AudioModule">
       <HintPath>..\..\..\..\..\..\Program Files (x86)\Steam\steamapps\common\SubnauticaBranches\Stable\Subnautica_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
     </Reference>
@@ -72,6 +76,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Item.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="Mono.cs" />
     <Compile Include="Patch.cs" />

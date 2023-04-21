@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using LightType = UnityEngine.LightType;
 using UnityEngine;
-using System.Xml.Linq;
-using System.Linq;
 
 namespace Ramune.HeadlampChip
 {
@@ -55,7 +53,7 @@ namespace Ramune.HeadlampChip
             lightState = light.enabled ? 1 : 0;
             if(!Cursor.visible && GameInput.GetKeyDown(HeadlampChip.config.toggle))
             {
-                switch (lightState)
+                switch(lightState)
                 {
                     case 0:
                         light.enabled = true;
@@ -70,12 +68,12 @@ namespace Ramune.HeadlampChip
         public bool ChipEquipped()
         {
             Equipment equipment = Inventory.main?.equipment;
-            if (equipment == null) return false;
+            if(equipment == null) return false;
 
             List<string> Slots = new List<string>();
             equipment.GetSlots(EquipmentType.Chip, Slots);
 
-            for (int i = 0; i < Slots.Count; i++)
+            for(int i = 0; i < Slots.Count; i++)
             {
                 string slot = Slots[i];
                 if(equipment.GetTechTypeInSlot(slot) == HeadlampChipItem.thisTechType) return true;

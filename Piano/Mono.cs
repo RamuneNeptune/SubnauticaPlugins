@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections;
 using RamuneLib.Utils;
 using FMOD.Studio;
+using System.Linq;
 
 namespace Ramune.CyclopsStasisDecoys
 {
@@ -14,13 +15,9 @@ namespace Ramune.CyclopsStasisDecoys
             base.damage = 30f;
             base.bashTime = 0.3f;
             base.damageType = DamageType.Heat;
-            base.energyMixin = gameObject.EnsureComponent<EnergyMixin>();
-            Log.Colored(Colors.Blue, "Set values & energyMixin..");
-        }
-
-        public override int GetUsesPerHit()
-        {
-            return 2;
+            Log.Colored(Colors.Red, "Setting values..");
+            transform.parent = Player.main.gameObject.GetComponentsInChildren<Transform>().FirstOrDefault(t => t.gameObject.name == "attach1");
+            Log.Colored(Colors.Green, "Set values..");
         }
 
         public override string animToolName

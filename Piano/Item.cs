@@ -12,6 +12,12 @@ using static CraftData;
 using TechData = SMLHelper.V2.Crafting.TechData;
 using Ingredient = SMLHelper.V2.Crafting.Ingredient;
 using Main = Ramune.CyclopsStasisDecoys.CyclopsStasisDecoys;
+using static SMLHelper.V2.Assets.CustomFabricator;
+using UWE;
+using static RootMotion.FinalIK.RagdollUtility;
+using FMODUnity;
+using RamuneLib.Utils;
+using System.ComponentModel;
 
 namespace Ramune.CyclopsStasisDecoys
 {
@@ -34,17 +40,47 @@ namespace Ramune.CyclopsStasisDecoys
         public override IEnumerator GetGameObjectAsync(IOut<GameObject> gameObject)
         {
             var prefab = Object.Instantiate(Main.LongBladeAsset.LoadAsset<GameObject>("LongBlade"));
+
+            prefab.name = "LongBlade";
+            prefab.transform.localPosition = new Vector3(0.06f, 0.27f, 0.05f);
+            prefab.transform.localRotation = Quaternion.Euler(350f, 265f, 172f);
+            prefab.transform.localScale = new Vector3(0.63f, 0.63f, 0.63f);
+
+            GameObject colliderGO = new GameObject("collider_container");
+            colliderGO.transform.SetParent(prefab.transform, false);
+            colliderGO.transform.localPosition = new Vector3(0f, 0.13f, 0.02f);
+            colliderGO.transform.localScale = new Vector3(1f, 1f, 1f);
+            colliderGO.transform.localRotation = Quaternion.Euler(7f, 358f, 355f);
+
+            BoxCollider boxCollider = colliderGO.EnsureComponent<BoxCollider>();
+            boxCollider.size = new Vector3(0.13f, 0.83f, 0.05f);
+            boxCollider.center = new Vector3(0f, 0.12f, 0f);
+
+            LongBladeTool longblade = prefab.EnsureComponent<LongBladeTool>();
+            prefab.EnsureComponent<PrefabIdentifier>().ClassId = ClassID;
+            prefab.EnsureComponent<TechTag>().type = TechType;
+            prefab.EnsureComponent<Pickupable>().isPickupable = true;
+            prefab.EnsureComponent<LargeWorldEntity>().cellLevel = LargeWorldEntity.CellLevel.Near;
+
+            prefab.EnsureComponent<VFXSurface>();
+            prefab.EnsureComponent<EcoTarget>();
+            prefab.EnsureComponent<FMOD_CustomEmitter>();
+            prefab.EnsureComponent<StudioEventEmitter>();
+
             var renderers = prefab.GetComponentsInChildren<Renderer>();
             prefab.EnsureComponent<SkyApplier>().renderers = renderers;
             var marmoset = Shader.Find("MarmosetUBER");
-            foreach(var renderer in renderers) renderer.materials.ForEach((mat) => mat.shader = marmoset);
-            prefab.EnsureComponent<LongBladeTool>();
-            prefab.EnsureComponent<LargeWorldEntity>().cellLevel = LargeWorldEntity.CellLevel.Far;
-            prefab.EnsureComponent<PrefabIdentifier>().ClassId = ClassID;
-            prefab.EnsureComponent<CapsuleCollider>();
-            prefab.EnsureComponent<Rigidbody>();
-            Pickupable pickupable = prefab.EnsureComponent<Pickupable>();
-            pickupable.enabled = true;
+            foreach (var renderer in renderers) renderer.materials.ForEach((mat) => mat.shader = marmoset);
+
+            Knife knife = longblade.GetComponent<Knife>();
+
+            longblade.mainCollider = boxCollider;
+            longblade.socket = PlayerTool.Socket.RightHand;
+            longblade.ikAimRightArm = true;
+
+            longblade.attackSound = Object.Instantiate(knife.attackSound, prefab.transform);
+            longblade.underwaterMissSound = Object.Instantiate(knife.underwaterMissSound, prefab.transform);
+            longblade.surfaceMissSound = Object.Instantiate(knife.surfaceMissSound, prefab.transform);
 
             yield return null;
             gameObject.Set(prefab);
